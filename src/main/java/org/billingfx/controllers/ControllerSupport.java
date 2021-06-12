@@ -1,4 +1,4 @@
-package org.billingfx;
+package org.billingfx.controllers;
 
 import javafx.fxml.FXML;
 

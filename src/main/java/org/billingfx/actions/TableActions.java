@@ -1,6 +1,7 @@
-package org.billingfx;
+package org.billingfx.actions;
 
 import javafx.fxml.FXML;
+import org.billingfx.controllers.App;
 
 import java.io.IOException;
 

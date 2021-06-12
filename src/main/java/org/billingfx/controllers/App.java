@@ -1,4 +1,4 @@
-package org.billingfx;
+package org.billingfx.controllers;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("main"));
+        scene = new Scene(loadFXML("secondary"));
         scene.getStylesheets().add(App.class.getClassLoader().getResource("style.css").toExternalForm());
         stage.setScene(scene);
         stage.show();

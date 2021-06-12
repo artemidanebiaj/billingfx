@@ -1,3 +1,7 @@
-/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/TableActions.java
-/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/ControllerSupport.java
-/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/App.java
+/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/models/Product.java
+/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/actions/TableActions.java
+/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/models/ProductTableData.java
+/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/utils/EditCell.java
+/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/controllers/TableAppController.java
+/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/controllers/App.java
+/Users/artemidanebiaj/IdeaProjects/Billing/src/main/java/org/billingfx/controllers/ControllerSupport.java

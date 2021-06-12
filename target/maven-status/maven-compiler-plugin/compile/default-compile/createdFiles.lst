@@ -1,3 +1,9 @@
-org/billingfx/App.class
-org/billingfx/TableActions.class
-org/billingfx/ControllerSupport.class
+org/billingfx/models/ProductTableData.class
+org/billingfx/models/Product.class
+org/billingfx/utils/EditCell$2.class
+org/billingfx/actions/TableActions.class
+org/billingfx/controllers/ControllerSupport.class
+org/billingfx/utils/EditCell$1.class
+org/billingfx/controllers/App.class
+org/billingfx/utils/EditCell.class
+org/billingfx/controllers/TableAppController.class

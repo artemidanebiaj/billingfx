@@ -1,52 +1,50 @@
 package org.billingfx.models;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class Product {
 
-    private SimpleStringProperty id;
-    private float quantity;
-    private float price;
+    private String id;
+    private Double quantity;
+    private Double price;
 
-    public Product(SimpleStringProperty id, float quantity, float price) {
+    public Product(String id, Double quantity, Double price) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
     }
 
-    public SimpleStringProperty getId() {
+    public String getId() {
         return id;
     }
 
-    public SimpleStringProperty idProperty() {
+    public String idProperty() {
         return id;
     }
 
-    public void setId(SimpleStringProperty id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public float getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
-    public float quantityProperty() {
+    public Double quantityProperty() {
         return quantity;
     }
 
-    public void setQuantity(float quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 
-    public float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public float priceProperty() {
+    public Double priceProperty() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }

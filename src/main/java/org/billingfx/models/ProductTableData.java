@@ -1,12 +1,10 @@
 package org.billingfx.models;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class ProductTableData {
 
-    private SimpleStringProperty id;
-    private float quantity;
-    private float price;
+    private String id;
+    private Double quantity;
+    private Double price;
 
 
     public ProductTableData(Product product) {
@@ -15,9 +13,33 @@ public class ProductTableData {
         this.price = product.getPrice();
     }
 
-    public ProductTableData(SimpleStringProperty id, float quantity, float price) {
+    public ProductTableData(String id, Double quantity, Double price) {
         this.id = id;
         this.quantity = quantity;
+        this.price = price;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
         this.price = price;
     }
 }

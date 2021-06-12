@@ -32,27 +32,13 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.billingfx.TableActions">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.billingfx.controllers.TableAppController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -102,11 +88,23 @@
         </Label>
             <BorderPane fx:id="pane" accessibleRole="SLIDER" cache="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="297.0" prefWidth="640.0">
                <left>
-                  <TableView prefHeight="297.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="table" prefHeight="297.0" prefWidth="320.0" BorderPane.alignment="CENTER">
                     <columns>
-                      <TableColumn onEditCommit="#updateId" prefWidth="123.0" text="Produkti" />
-                      <TableColumn prefWidth="97.0" text="Sasia" />
-                        <TableColumn prefWidth="99.0" text="Cmimi" />
+                      <TableColumn fx:id= "id" prefWidth="123.0" text="Id">
+                          <cellValueFactory>
+                              <PropertyValueFactory property="id" />
+                          </cellValueFactory>
+                      </TableColumn>
+                        <TableColumn fx:id= "quantity" prefWidth="97.0" text="Sasia" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="quantity" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id= "price" prefWidth="99.0" text="Cmimi" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="price" />
+                            </cellValueFactory>
+                        </TableColumn>
                     </columns>
                   </TableView>
                </left>
@@ -123,13 +121,13 @@
                         <RowConstraints maxHeight="229.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="17.0" prefWidth="159.0" text="Produkti" />
+                        <Label prefHeight="17.0" prefWidth="159.0" text="Id" />
                         <Label prefHeight="17.0" prefWidth="159.0" text="Sasia" GridPane.rowIndex="1" />
                         <Label prefHeight="17.0" prefWidth="160.0" text="Cmimi" GridPane.rowIndex="2" />
-                        <Button fx:id="add" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#addToList" text="Shto" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="product" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1" />
-                        <TextField fx:id="price" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="quantity" prefHeight="0.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="submitButton" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#submit" text="Shto" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="idTextField" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1" />
+                        <TextField fx:id="quantityTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="priceTextField" prefHeight="0.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                      <effect>
                         <Blend />
@@ -162,7 +160,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="generate" mnemonicParsing="false" onMouseClicked="#generateBills" prefHeight="26.0" prefWidth="320.0" text="Gjenero" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="generate" mnemonicParsing="false" prefHeight="26.0" prefWidth="320.0" text="Gjenero" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
       </children>
