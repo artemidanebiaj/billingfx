@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="964c70a5-15b9-4076-bd3d-d7494336d3d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/controllers/TableAppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/utils/EditCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/utils/MyDoubleStringConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billingfx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/controllers/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billingfx/ControllerSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/controllers/ControllerSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billingfx/TableActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/actions/TableActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billingfx/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/billingfx/models/ProductTableData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/models/ProductTableData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/billingfx/controllers/TableAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/billingfx/controllers/TableAppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/secondary.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/billingfx/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/billingfx/ControllerSupport.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/billingfx/TableActions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/secondary.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/billingfx/controllers/TableAppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/billingfx/controllers/TableAppController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +49,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.billingfx.utils" />
       <recent name="org.billingfx.models" />
     </key>
     <key name="CopyFile.RECENT_KEYS">

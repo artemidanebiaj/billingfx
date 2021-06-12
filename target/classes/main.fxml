@@ -32,12 +32,27 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.billingfx.controllers.TableAppController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
@@ -88,19 +103,19 @@
         </Label>
             <BorderPane fx:id="pane" accessibleRole="SLIDER" cache="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="297.0" prefWidth="640.0">
                <left>
-                  <TableView fx:id="table" prefHeight="297.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="table" editable="true" prefHeight="297.0" prefWidth="320.0" BorderPane.alignment="CENTER">
                     <columns>
-                      <TableColumn fx:id= "id" prefWidth="123.0" text="Id">
+                      <TableColumn fx:id="id" prefWidth="123.0" text="Id">
                           <cellValueFactory>
                               <PropertyValueFactory property="id" />
                           </cellValueFactory>
                       </TableColumn>
-                        <TableColumn fx:id= "quantity" prefWidth="97.0" text="Sasia" >
+                        <TableColumn fx:id="quantity" prefWidth="97.0" text="Sasia">
                             <cellValueFactory>
                                 <PropertyValueFactory property="quantity" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id= "price" prefWidth="99.0" text="Cmimi" >
+                        <TableColumn fx:id="price" prefWidth="99.0" text="Cmimi">
                             <cellValueFactory>
                                 <PropertyValueFactory property="price" />
                             </cellValueFactory>

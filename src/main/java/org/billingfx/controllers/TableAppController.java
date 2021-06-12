@@ -7,8 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.util.converter.DefaultStringConverter;
 import org.billingfx.models.Product;
 import org.billingfx.models.ProductTableData;
+import org.billingfx.utils.EditCell;
+import org.billingfx.utils.MyDoubleStringConverter;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -32,18 +35,18 @@ public class TableAppController implements Initializable {
     @FXML
     private Button submitButton;
 
-    private ObservableList< ProductTableData > data = FXCollections
+    private ObservableList<ProductTableData> data = FXCollections
             .observableArrayList();
 
 
     @FXML
-    private TableColumn < ProductTableData, String > id;
+    private TableColumn<ProductTableData, String> id;
 
     @FXML
-    private TableColumn< ProductTableData, Double > quantity;
+    private TableColumn<ProductTableData, Double> quantity;
 
     @FXML
-    private TableColumn< ProductTableData, Double > price;
+    private TableColumn<ProductTableData, Double> price;
 
     @Override
     public void initialize(final URL url, final ResourceBundle rb) {
@@ -68,46 +71,57 @@ public class TableAppController implements Initializable {
                         22000.0));
     }
 
-    private void populate(final List < Product > products) {
+    private void populate(final List<Product> products) {
         products.forEach(p -> data.add(new ProductTableData(p)));
     }
 
     private void setupIdColumn() {
-
+        //make it editable
+        id.setCellFactory(
+                EditCell.<ProductTableData, String>forTableColumn(new DefaultStringConverter()));
         // committed value
         id.setOnEditCommit(event -> {
-        final String value = event.getNewValue() != null ? event.getNewValue() :
-                event.getOldValue();
-        ((ProductTableData) event.getTableView().getItems()
-                .get(event.getTablePosition().getRow()))
-                .setId(value);
-        table.refresh();
+            final String value = event.getNewValue() != null ? event.getNewValue() :
+                    event.getOldValue();
+            ((ProductTableData) event.getTableView().getItems()
+                    .get(event.getTablePosition().getRow()))
+                    .setId(value);
+            System.out.println("updated" + value);
+            table.refresh();
         });
     }
 
     private void setupQuantityColumn() {
+        //make it editable
+        quantity.setCellFactory(
+                EditCell.<ProductTableData, Double>forTableColumn(
+                        new MyDoubleStringConverter()));
 
         // updates the salary field on the PersonTableData object to the
         // committed value
         quantity.setOnEditCommit(event -> {
-        final Double value = event.getNewValue() != null ?
-                event.getNewValue() : event.getOldValue();
-        ((ProductTableData) event.getTableView().getItems()
-                .get(event.getTablePosition().getRow())).setQuantity(value);
-        table.refresh();
+            final Double value = event.getNewValue() != null ?
+                    event.getNewValue() : event.getOldValue();
+            ((ProductTableData) event.getTableView().getItems()
+                    .get(event.getTablePosition().getRow())).setQuantity(value);
+            table.refresh();
         });
     }
 
     private void setupPriceColumn() {
+        //make it editable
+        price.setCellFactory(
+                EditCell.<ProductTableData, Double>forTableColumn(
+                        new MyDoubleStringConverter()));
 
         // updates the salary field on the PersonTableData object to the
         // committed value
         price.setOnEditCommit(event -> {
-        final Double value = event.getNewValue() != null ?
-                event.getNewValue() : event.getOldValue();
-        ((ProductTableData) event.getTableView().getItems()
-                .get(event.getTablePosition().getRow())).setPrice(value);
-        table.refresh();
+            final Double value = event.getNewValue() != null ?
+                    event.getNewValue() : event.getOldValue();
+            ((ProductTableData) event.getTableView().getItems()
+                    .get(event.getTablePosition().getRow())).setPrice(value);
+            table.refresh();
         });
     }
 
@@ -118,26 +132,26 @@ public class TableAppController implements Initializable {
         // when character or numbers pressed it will start edit in editable
         // fields
         table.setOnKeyPressed(event -> {
-        if (event.getCode().isLetterKey() || event.getCode().isDigitKey()) {
-            editFocusedCell();
-        } else if (event.getCode() == KeyCode.RIGHT ||
-                event.getCode() == KeyCode.TAB) {
-            table.getSelectionModel().selectNext();
-            event.consume();
-        } else if (event.getCode() == KeyCode.LEFT) {
-            // work around due to
-            // TableView.getSelectionModel().selectPrevious() due to a bug
-            // stopping it from working on
-            // the first column in the last row of the table
-            selectPrevious();
-            event.consume();
-        }
+            if (event.getCode().isLetterKey() || event.getCode().isDigitKey()) {
+                editFocusedCell();
+            } else if (event.getCode() == KeyCode.RIGHT ||
+                    event.getCode() == KeyCode.TAB) {
+                table.getSelectionModel().selectNext();
+                event.consume();
+            } else if (event.getCode() == KeyCode.LEFT) {
+                // work around due to
+                // TableView.getSelectionModel().selectPrevious() due to a bug
+                // stopping it from working on
+                // the first column in the last row of the table
+                selectPrevious();
+                event.consume();
+            }
         });
     }
 
     @SuppressWarnings("unchecked")
     private void editFocusedCell() {
-        final TablePosition< ProductTableData, ? > focusedCell = table
+        final TablePosition<ProductTableData, ?> focusedCell = table
                 .focusModelProperty().get().focusedCellProperty().get();
         table.edit(focusedCell.getRow(), focusedCell.getTableColumn());
     }
@@ -147,7 +161,7 @@ public class TableAppController implements Initializable {
         if (table.getSelectionModel().isCellSelectionEnabled()) {
             // in cell selection mode, we have to wrap around, going from
             // right-to-left, and then wrapping to the end of the previous line
-            TablePosition < ProductTableData, ? > pos = table.getFocusModel()
+            TablePosition<ProductTableData, ?> pos = table.getFocusModel()
                     .getFocusedCell();
             if (pos.getColumn() - 1 >= 0) {
                 // go to previous row
@@ -169,8 +183,8 @@ public class TableAppController implements Initializable {
         }
     }
 
-    private TableColumn < ProductTableData, ? > getTableColumn(
-            final TableColumn < ProductTableData, ? > column, int offset) {
+    private TableColumn<ProductTableData, ?> getTableColumn(
+            final TableColumn<ProductTableData, ?> column, int offset) {
         int columnIndex = table.getVisibleLeafIndex(column);
         int newColumnIndex = columnIndex + offset;
         return table.getVisibleLeafColumn(newColumnIndex);
