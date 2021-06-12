@@ -1,0 +1,6 @@
+.button {
+    -fx-text-fill: blue;
+}
+#pane {
+-fx-background-color: linear-gradient(#04B45F, #81F79F);
+}
