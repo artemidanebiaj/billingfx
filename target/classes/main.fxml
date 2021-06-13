@@ -157,25 +157,24 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
+                <RowConstraints />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="99.0" text="Shuma" textAlignment="CENTER">
+                  <Label fx:id="tot" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="320.0" text="Shuma" textAlignment="CENTER" GridPane.rowIndex="1">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Label>
-                  <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="195.0" text="Nr i faturave per gjenerim" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField alignment="TOP_CENTER" editable="false" GridPane.columnIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </TextField>
-                  <Button fx:id="generate" mnemonicParsing="false" prefHeight="26.0" prefWidth="320.0" text="Gjenero" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="grandTotal" alignment="BOTTOM_RIGHT" editable="false" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+
+                  <Button fx:id="generate" mnemonicParsing="false" prefHeight="26.0" prefWidth="320.0" text="Gjenero" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button fx:id="updateTotal" mnemonicParsing="false" onAction="#calculateTotal" prefHeight="26.0" prefWidth="320.0" text="Perditeso shumen" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
       </children>

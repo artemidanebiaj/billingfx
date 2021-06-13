@@ -33,6 +33,11 @@ public class TableAppController implements Initializable {
     private TextField priceTextField;
 
     @FXML
+    private TextField grandTotal;
+
+    private Double total = 0.0;
+
+    @FXML
     private Button submitButton;
 
     private ObservableList<ProductTableData> data = FXCollections
@@ -56,19 +61,14 @@ public class TableAppController implements Initializable {
         setupQuantityColumn();
         setupPriceColumn();
         setTableEditable();
+        grandTotal.setText("0");
 
     }
 
     private List<Product> retrieveData() {
         return Arrays.asList(
-                new Product("1", 20.0,
-                        22000.0),
-                new Product("2", 20.0,
-                        22000.0),
-                new Product("3", 20.0,
-                        22000.0),
-                new Product("4", 20.0,
-                        22000.0));
+                new Product("0", 0.0,
+                        0.0));
     }
 
     private void populate(final List<Product> products) {
@@ -146,7 +146,9 @@ public class TableAppController implements Initializable {
                 selectPrevious();
                 event.consume();
             }
+            calculateTotal();
         });
+
     }
 
     @SuppressWarnings("unchecked")
@@ -154,6 +156,7 @@ public class TableAppController implements Initializable {
         final TablePosition<ProductTableData, ?> focusedCell = table
                 .focusModelProperty().get().focusedCellProperty().get();
         table.edit(focusedCell.getRow(), focusedCell.getTableColumn());
+
     }
 
     @SuppressWarnings("unchecked")
@@ -188,6 +191,7 @@ public class TableAppController implements Initializable {
         int columnIndex = table.getVisibleLeafIndex(column);
         int newColumnIndex = columnIndex + offset;
         return table.getVisibleLeafColumn(newColumnIndex);
+
     }
 
     @FXML
@@ -196,8 +200,8 @@ public class TableAppController implements Initializable {
             final String id = idTextField.getText();
             final Double quantity = Double.parseDouble(quantityTextField.getText());
             final Double price = Double.parseDouble(priceTextField.getText());
-
             data.add(new ProductTableData(id, quantity, price));
+            calculateTotal();
         }
     }
 
@@ -206,5 +210,15 @@ public class TableAppController implements Initializable {
                 !quantityTextField.getText().isEmpty() &&
                 !priceTextField.getText().isEmpty();
     }
+
+    @FXML
+    private void calculateTotal() {
+        total = 0.0;
+        for(int i = 0; i < data.size(); i++){
+            total += (data.get(i).getPrice() * data.get(i).getQuantity());
+        }
+        grandTotal.setText(total.toString());
+    }
+
 
 }
